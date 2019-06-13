@@ -315,7 +315,7 @@
 #define MSG_DEFAULT_SETTINGS_LOADED			"Ustawienia domyœlne"
 #define MSG_SORTING							"Sortowanie plikow"
 #define MSG_FILE_INCOMPLETE					"Plik niekompletny. Kontynuowac?"
-#define MSG_WIZARD_WELCOME					"Czesc, jestem Twoja drukarka Original Prusa i3. Czy potrzebujesz pomocy z instalacja?"
+#define MSG_WIZARD_WELCOME					"Czesc, jestem Twoja drukarka Zaribo. Czy potrzebujesz pomocy z instalacja?"
 #define MSG_WIZARD_QUIT						"Zawsze mozesz przywrocic Wizard przez Kalibracja -> Wizard."
 #define MSG_WIZARD_SELFTEST					"Najpierw wlacze autotest w celu kontrolli najczestszych problemow z montazem."
 #define MSG_WIZARD_CALIBRATION_FAILED		"Prosze sprawdz nasz poradnik i napraw problem. Potem przywroc Wizard restartujac drukarke."
