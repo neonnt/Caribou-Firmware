@@ -31,6 +31,7 @@
 
 #include "Marlin.h"
 #include "ultralcd.h"
+#include "sound.h"
 #include "temperature.h"
 #include "watchdog.h"
 #include "cardreader.h"
@@ -91,15 +92,15 @@ static volatile bool temp_meas_ready = false;
 
 #ifdef PIDTEMP
   //static cannot be external:
-  static float temp_iState[EXTRUDERS] = { 0 };
-  static float temp_dState[EXTRUDERS] = { 0 };
+  static float iState_sum[EXTRUDERS] = { 0 };
+  static float dState_last[EXTRUDERS] = { 0 };
   static float pTerm[EXTRUDERS];
   static float iTerm[EXTRUDERS];
   static float dTerm[EXTRUDERS];
   //int output;
   static float pid_error[EXTRUDERS];
-  static float temp_iState_min[EXTRUDERS];
-  static float temp_iState_max[EXTRUDERS];
+  static float iState_sum_min[EXTRUDERS];
+  static float iState_sum_max[EXTRUDERS];
   // static float pid_input[EXTRUDERS];
   // static float pid_output[EXTRUDERS];
   static bool pid_reset[EXTRUDERS];
@@ -396,7 +397,7 @@ void updatePID()
 {
 #ifdef PIDTEMP
   for(int e = 0; e < EXTRUDERS; e++) { 
-     temp_iState_max[e] = PID_INTEGRAL_DRIVE_MAX / Ki;  
+     iState_sum_max[e] = PID_INTEGRAL_DRIVE_MAX / Ki;  
   }
 #endif
 #ifdef PIDTEMPBED
@@ -482,6 +483,12 @@ void checkExtruderAutoFans()
 
 #endif // any extruder auto fan pins set
 
+// ready for eventually parameters adjusting
+void resetPID(uint8_t)                            // only for compiler-warning elimination (if function do nothing)
+//void resetPID(uint8_t extruder)
+{
+}
+
 void manage_heater()
 {
   float pid_input;
@@ -489,6 +496,7 @@ void manage_heater()
 
   if(temp_meas_ready != true)   //better readability
     return; 
+// more precisely - this condition partially stabilizes time interval for regulation values evaluation (@ ~ 230ms)
 
   updateTemperaturesFromRawValues();
 
@@ -507,38 +515,42 @@ void manage_heater()
     pid_input = current_temperature[e];
 
     #ifndef PID_OPENLOOP
-        pid_error[e] = target_temperature[e] - pid_input;
-        if(pid_error[e] > PID_FUNCTIONAL_RANGE) {
-          pid_output = BANG_MAX;
-          pid_reset[e] = true;
-        }
-        else if(pid_error[e] < -PID_FUNCTIONAL_RANGE || target_temperature[e] == 0) {
+        if(target_temperature[e] == 0) {
           pid_output = 0;
           pid_reset[e] = true;
-        }
-        else {
-          if(pid_reset[e] == true) {
-            temp_iState[e] = 0.0;
+        } else {
+          pid_error[e] = target_temperature[e] - pid_input;
+          if(pid_reset[e]) {
+            iState_sum[e] = 0.0;
+            dTerm[e] = 0.0;                       // 'dState_last[e]' initial setting is not necessary (see end of if-statement)
             pid_reset[e] = false;
           }
+#ifndef PonM
           pTerm[e] = Kp * pid_error[e];
-          temp_iState[e] += pid_error[e];
-          temp_iState[e] = constrain(temp_iState[e], temp_iState_min[e], temp_iState_max[e]);
-          iTerm[e] = Ki * temp_iState[e];
-
-          //K1 defined in Configuration.h in the PID settings
+          iState_sum[e] += pid_error[e];
+          iState_sum[e] = constrain(iState_sum[e], iState_sum_min[e], iState_sum_max[e]);
+          iTerm[e] = Ki * iState_sum[e];
+          // K1 defined in Configuration.h in the PID settings
           #define K2 (1.0-K1)
-          dTerm[e] = (Kd * (pid_input - temp_dState[e]))*K2 + (K1 * dTerm[e]);
-          pid_output = pTerm[e] + iTerm[e] - dTerm[e];
+          dTerm[e] = (Kd * (pid_input - dState_last[e]))*K2 + (K1 * dTerm[e]); // e.g. digital filtration of derivative term changes
+          pid_output = pTerm[e] + iTerm[e] - dTerm[e]; // subtraction due to "Derivative on Measurement" method (i.e. derivative of input instead derivative of error is used)
           if (pid_output > PID_MAX) {
-            if (pid_error[e] > 0 )  temp_iState[e] -= pid_error[e]; // conditional un-integration
+            if (pid_error[e] > 0 ) iState_sum[e] -= pid_error[e]; // conditional un-integration
             pid_output=PID_MAX;
-          } else if (pid_output < 0){
-            if (pid_error[e] < 0 )  temp_iState[e] -= pid_error[e]; // conditional un-integration
+          } else if (pid_output < 0) {
+            if (pid_error[e] < 0 ) iState_sum[e] -= pid_error[e]; // conditional un-integration
             pid_output=0;
           }
+#else // PonM ("Proportional on Measurement" method)
+          iState_sum[e] += Ki * pid_error[e];
+          iState_sum[e] -= Kp * (pid_input - dState_last[e]);
+          iState_sum[e] = constrain(iState_sum[e], 0, PID_INTEGRAL_DRIVE_MAX);
+          dTerm[e] = Kd * (pid_input - dState_last[e]);
+          pid_output = iState_sum[e] - dTerm[e];  // subtraction due to "Derivative on Measurement" method (i.e. derivative of input instead derivative of error is used)
+          pid_output = constrain(pid_output, 0, PID_MAX);
+#endif // PonM
         }
-        temp_dState[e] = pid_input;
+        dState_last[e] = pid_input;
     #else 
           pid_output = constrain(target_temperature[e], 0, PID_MAX);
     #endif //PID_OPENLOOP
@@ -555,7 +567,7 @@ void manage_heater()
     SERIAL_ECHO(" iTerm ");
     SERIAL_ECHO(iTerm[e]);
     SERIAL_ECHO(" dTerm ");
-    SERIAL_ECHOLN(dTerm[e]);
+    SERIAL_ECHOLN(-dTerm[e]);
     #endif //PID_DEBUG
   #else /* PID off */
     pid_output = 0;
@@ -565,11 +577,12 @@ void manage_heater()
   #endif
 
     // Check if temperature is within the correct range
-    if((current_temperature[e] > minttemp[e]) && (current_temperature[e] < maxttemp[e])) 
+    if((current_temperature[e] < maxttemp[e]) && (target_temperature[e] != 0))
     {
       soft_pwm[e] = (int)pid_output >> 1;
     }
-    else {
+    else
+    {
       soft_pwm[e] = 0;
     }
 
@@ -693,6 +706,8 @@ void manage_heater()
         WRITE(HEATER_BED_PIN,LOW);
       }
     #endif
+      if(target_temperature_bed==0)
+        soft_pwm_bed = 0;
   #endif
   
 //code for controlling the extruder rate based on the width sensor 
@@ -891,8 +906,8 @@ void tp_init()
     // populate with the first value 
     maxttemp[e] = maxttemp[0];
 #ifdef PIDTEMP
-    temp_iState_min[e] = 0.0;
-    temp_iState_max[e] = PID_INTEGRAL_DRIVE_MAX / Ki;
+    iState_sum_min[e] = 0.0;
+    iState_sum_max[e] = PID_INTEGRAL_DRIVE_MAX / Ki;
 #endif //PIDTEMP
 #ifdef PIDTEMPBED
     temp_iState_min_bed = 0.0;
@@ -1105,24 +1120,24 @@ void temp_runaway_check(int _heater_id, float _target_temperature, float _curren
 	static int __preheat_counter[2] = { 0,0};
 	static int __preheat_errors[2] = { 0,0};
 		
-	
-#ifdef 	TEMP_RUNAWAY_BED_TIMEOUT
-	if (_isbed)
-	{
-		__hysteresis = TEMP_RUNAWAY_BED_HYSTERESIS;
-		__timeout = TEMP_RUNAWAY_BED_TIMEOUT;
-	}
-#endif
-#ifdef 	TEMP_RUNAWAY_EXTRUDER_TIMEOUT
-	if (!_isbed)
-	{
-		__hysteresis = TEMP_RUNAWAY_EXTRUDER_HYSTERESIS;
-		__timeout = TEMP_RUNAWAY_EXTRUDER_TIMEOUT;
-	}
-#endif
 
 	if (millis() - temp_runaway_timer[_heater_id] > 2000)
 	{
+
+#ifdef 	TEMP_RUNAWAY_BED_TIMEOUT
+          if (_isbed)
+          {
+               __hysteresis = TEMP_RUNAWAY_BED_HYSTERESIS;
+               __timeout = TEMP_RUNAWAY_BED_TIMEOUT;
+          }
+#endif
+#ifdef 	TEMP_RUNAWAY_EXTRUDER_TIMEOUT
+          if (!_isbed)
+          {
+               __hysteresis = TEMP_RUNAWAY_EXTRUDER_HYSTERESIS;
+               __timeout = TEMP_RUNAWAY_EXTRUDER_TIMEOUT;
+          }
+#endif
 
 		temp_runaway_timer[_heater_id] = millis();
 		if (_output == 0)
@@ -1147,52 +1162,52 @@ void temp_runaway_check(int _heater_id, float _target_temperature, float _curren
 			}
 		}
 
-		if (temp_runaway_status[_heater_id] == TempRunaway_PREHEAT)
+		if ((_current_temperature < _target_temperature)  && (temp_runaway_status[_heater_id] == TempRunaway_PREHEAT))
 		{
-			if (_current_temperature < ((_isbed) ? (0.8 * _target_temperature) : 150)) //check only in area where temperature is changing fastly for heater, check to 0.8 x target temperature for bed
+			__preheat_counter[_heater_id]++;
+			if (__preheat_counter[_heater_id] > ((_isbed) ? 16 : 8)) // periodicaly check if current temperature changes
 			{
-				__preheat_counter[_heater_id]++;
-				//SERIAL_ECHOPGM("counter[0]:");  MYSERIAL.println(__preheat_counter[0]);
-				//SERIAL_ECHOPGM("counter[1]:");  MYSERIAL.println(__preheat_counter[1]);
-				//SERIAL_ECHOPGM("_isbed"); MYSERIAL.println(_isbed);
-				if (__preheat_counter[_heater_id] > ((_isbed) ? 16 : 8)) // periodicaly check if current temperature changes
-				{
-					/*SERIAL_ECHOLNPGM("Heater:");
-					MYSERIAL.print(_heater_id);
-					SERIAL_ECHOPGM(" Current temperature:");
-					MYSERIAL.print(_current_temperature);
-					SERIAL_ECHOPGM(" Tstart:");
-					MYSERIAL.print(__preheat_start[_heater_id]);*/
-					
-					if (_current_temperature - __preheat_start[_heater_id] < 2) {
-						__preheat_errors[_heater_id]++;
-						/*SERIAL_ECHOPGM(" Preheat errors:");
-						MYSERIAL.println(__preheat_errors[_heater_id]);*/
-					}
-					else {
-						//SERIAL_ECHOLNPGM("");
-						__preheat_errors[_heater_id] = 0;
-					}
-
-					if (__preheat_errors[_heater_id] > ((_isbed) ? 2 : 5)) 
-					{
-						if (farm_mode) { prusa_statistics(0); }
-						temp_runaway_stop(true, _isbed);
-						if (farm_mode) { prusa_statistics(91); }
-					}
-					__preheat_start[_heater_id] = _current_temperature;
-					__preheat_counter[_heater_id] = 0;
+				/*SERIAL_ECHOPGM("Heater:");
+				MYSERIAL.print(_heater_id);
+				SERIAL_ECHOPGM(" T:");
+				MYSERIAL.print(_current_temperature);
+				SERIAL_ECHOPGM(" Tstart:");
+				MYSERIAL.print(__preheat_start[_heater_id]);
+				SERIAL_ECHOPGM(" delta:");
+				MYSERIAL.print(_current_temperature-__preheat_start[_heater_id]);*/
+				
+				if (_current_temperature - __preheat_start[_heater_id] < 2) {
+					__preheat_errors[_heater_id]++;
+					/*SERIAL_ECHOPGM(" Preheat errors:");
+					MYSERIAL.println(__preheat_errors[_heater_id]);*/
 				}
+				else {
+					//SERIAL_ECHOLNPGM("");
+					__preheat_errors[_heater_id] = 0;
+				}
+
+				if (__preheat_errors[_heater_id] > ((_isbed) ? 3 : 5)) 
+				{
+					if (farm_mode) { prusa_statistics(0); }
+					temp_runaway_stop(true, _isbed);
+					if (farm_mode) { prusa_statistics(91); }
+				}
+				__preheat_start[_heater_id] = _current_temperature;
+				__preheat_counter[_heater_id] = 0;
 			}
 		}
 
-		if (_current_temperature >= _target_temperature  && temp_runaway_status[_heater_id] == TempRunaway_PREHEAT)
+          if (((_isbed && (_target_temperature > TEMP_MAX_CHECKED_BED) && (_current_temperature > TEMP_MAX_CHECKED_BED)) || (_current_temperature > (_target_temperature - __hysteresis))) && (temp_runaway_status[_heater_id] == TempRunaway_PREHEAT))
 		{
+			/*SERIAL_ECHOPGM("Heater:");
+			MYSERIAL.print(_heater_id);
+			MYSERIAL.println(" ->tempRunaway");*/
 			temp_runaway_status[_heater_id] = TempRunaway_ACTIVE;
 			temp_runaway_check_active = false;
+			temp_runaway_error_counter[_heater_id] = 0;
 		}
 
-		if (!temp_runaway_check_active && _output > 0)
+		if (_output > 0)
 		{
 			temp_runaway_check_active = true;
 		}
@@ -1201,7 +1216,7 @@ void temp_runaway_check(int _heater_id, float _target_temperature, float _curren
 		if (temp_runaway_check_active)
 		{			
 			//	we are in range
-			if (_target_temperature - __hysteresis < _current_temperature && _current_temperature < _target_temperature + __hysteresis)
+			if ((_isbed && (_target_temperature > TEMP_MAX_CHECKED_BED) && (_current_temperature > TEMP_MAX_CHECKED_BED)) || ((_current_temperature > (_target_temperature - __hysteresis)) && (_current_temperature < (_target_temperature + __hysteresis))))
 			{
 				temp_runaway_check_active = false;
 				temp_runaway_error_counter[_heater_id] = 0;
@@ -1233,6 +1248,9 @@ void temp_runaway_stop(bool isPreheat, bool isBed)
 		card.sdprinting = false;
 		card.closefile();
 	}
+	// Clean the input command queue 
+	// This is necessary, because in command queue there can be commands which would later set heater or bed temperature.
+	cmdqueue_reset();
 	
 	disable_heater();
 	disable_x();
