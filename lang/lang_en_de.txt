@@ -11,12 +11,12 @@
 "[0;0] Punktversatz"
 
 #MSG_CRASH_DET_ONLY_IN_NORMAL c=20 r=4
-"\x1b[2JCrash detection can\x1b[1;0Hbe turned on only in\x1b[2;0HNormal mode"
-"\x1b[2JCrash Erkennung kann\x1b[1;0Hnur im Modus Normal\x1b[2;0Hgenutzt werden"
+"Crash detection can\x0abe turned on only in\x0aNormal mode"
+"Crash Erkennung kann\x0anur im Modus Normal\x0agenutzt werden"
 
 #MSG_CRASH_DET_STEALTH_FORCE_OFF c=20 r=4
-"\x1b[2JWARNING:\x1b[1;0HCrash detection\x1b[2;0Hdisabled in\x1b[3;0HStealth mode"
-"\x1b[2JWARNUNG:\x1b[1;0HCrash Erkennung\x1b[2;0Hdeaktiviert im\x1b[3;0HStealth Modus"
+"WARNING:\x0aCrash detection\x0adisabled in\x0aStealth mode"
+"WARNUNG:\x0aCrash Erkennung\x0adeaktiviert im\x0aStealth Modus"
 
 #
 ">Cancel"
@@ -24,11 +24,11 @@
 
 #MSG_BABYSTEPPING_Z c=15
 "Adjusting Z:"
-"Z Einstellung:"
+"Z einstellen:"
 
 #MSG_SELFTEST_CHECK_ALLCORRECT c=20
 "All correct      "
-"Alles richtig "
+"Alles richtig    "
 
 #MSG_WIZARD_DONE c=20 r=8
 "All is done. Happy printing!"
@@ -48,7 +48,7 @@
 
 #MSG_AUTO_DEPLETE_ON c=17 r=1
 "SpoolJoin    [on]"
-"SpoolJoin    [an]"
+"SpoolJoin    [An]"
 
 #
 "SpoolJoin   [N/A]"
@@ -56,7 +56,7 @@
 
 #MSG_AUTO_DEPLETE_OFF c=17 r=1
 "SpoolJoin   [off]"
-"SpoolJoin   [aus]"
+"SpoolJoin   [Aus]"
 
 #MSG_AUTO_HOME
 "Auto home"
@@ -108,7 +108,7 @@
 
 #MSG_MENU_BELT_STATUS c=15 r=1
 "Belt status"
-"Gurtstatus"
+"Riemstatus"
 
 #MSG_RECOVER_PRINT c=20 r=2
 "Blackout occurred. Recover print?"
@@ -116,7 +116,7 @@
 
 #
 "Calibrating home"
-"Kalibriere Start"
+"Kalib. Startpos"
 
 #MSG_CALIBRATE_BED
 "Calibrate XYZ"
@@ -172,7 +172,7 @@
 
 #MSG_CRASHDETECT_ON
 "Crash det.   [on]"
-"Crash Erk.   [an]"
+"Crash Erk.   [An]"
 
 #MSG_CRASHDETECT_NA
 "Crash det.  [N/A]"
@@ -180,7 +180,7 @@
 
 #MSG_CRASHDETECT_OFF
 "Crash det.  [off]"
-"Crash Erk.  [aus]"
+"Crash Erk.  [Aus]"
 
 #MSG_CRASH_DETECTED c=20 r=1
 "Crash detected."
@@ -196,7 +196,7 @@
 
 #MSG_CURRENT c=19 r=1
 "Current"
-"Aktuelles"
+"Aktuell"
 
 #MSG_DATE c=17 r=1
 "Date:"
@@ -220,7 +220,7 @@
 
 #MSG_EJECT_FILAMENT c=17 r=1
 "Eject filament"
-"Filamentauswurf"
+"Fil. auswerfen"
 
 #
 "Eject"
@@ -272,7 +272,7 @@
 
 #MSG_FSENS_AUTOLOAD_ON c=17 r=1
 "F. autoload  [on]"
-"F.Autoladen  [an]"
+"F.Autoladen  [An]"
 
 #MSG_FSENS_AUTOLOAD_NA c=17 r=1
 "F. autoload [N/A]"
@@ -280,11 +280,11 @@
 
 #MSG_FSENS_AUTOLOAD_OFF c=17 r=1
 "F. autoload [off]"
-"F. Autoload [aus]"
+"F. Autoload [Aus]"
 
 #
 "Fail stats"
-"Fehlerstatistik"
+"Fehlerstats"
 
 #MSG_FAN_SPEED c=14
 "Fan speed"
@@ -296,15 +296,15 @@
 
 #MSG_FANS_CHECK_ON c=17 r=1
 "Fans check   [on]"
-"Luefter Chk. [an]"
+"Luefter Ktr. [An]"
 
 #MSG_FANS_CHECK_OFF c=17 r=1
 "Fans check  [off]"
-"Luefter Chk.[aus]"
+"Luefter Ktr.[Aus]"
 
 #MSG_FSENSOR_ON
 "Fil. sensor  [on]"
-"Fil. Sensor  [an]"
+"Fil. Sensor  [An]"
 
 #MSG_FSENSOR_NA
 "Fil. sensor [N/A]"
@@ -312,7 +312,7 @@
 
 #MSG_FSENSOR_OFF
 "Fil. sensor [off]"
-"Fil. Sensor [aus]"
+"Fil. Sensor [Aus]"
 
 #
 "Filam. runouts"
@@ -397,6 +397,10 @@
 #MSG_WIZARD_WELCOME c=20 r=7
 "Hi, I am your Original Prusa i3 printer. Would you like me to guide you through the setup process?"
 "Hallo, ich bin Ihr Original Prusa i3 Drucker. Moechten Sie, dass ich Sie durch den Einrich- tungsablauf fuehre?"
+
+#MSG_WIZARD_WELCOME c=20 r=7
+"Hi, I am your Zaribo printer. Would you like me to guide you through the setup process?"
+"Hallo, ich bin Ihr Zaribo Drucker. Moechten Sie, dass ich Sie durch den Einrich- tungsablauf fuehre?"
 
 #MSG_PRUSA3D_HOWTO
 "howto.prusa3d.com"
@@ -592,7 +596,7 @@
 
 #MSG_SILENT_MODE_ON
 "Mode     [silent]"
-"Modus     [leise]"
+"Modus     [Leise]"
 
 #
 "MMU needs user attention."
@@ -688,7 +692,7 @@
 
 #
 "Nozzle FAN"
-"Duesen Luefter"
+"Duesevent."
 
 #MSG_PAUSE_PRINT
 "Pause print"
@@ -844,7 +848,75 @@
 
 #
 "Print FAN"
-"Druckluefter"
+"Druckvent"
+
+#WELCOME_MSG c=20
+"Prusa i3 MK2.5"
+"\x00"
+
+#WELCOME_MSG c=20
+"Prusa i3 MK3"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK2.5-320"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK2.5-220"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3-320"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3-220"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK2.5-420"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3-420"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3S-220"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3S-320"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3S-420"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3-BMG-220"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3-BMG-320"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3-BMG-420"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3S-BMG-220"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3S-BMG-320"
+"\x00"
+
+#WELCOME_MSG c=20
+"Zaribo MK3S-BMG-420"
+"\x00"
 
 #MSG_PRUSA3D
 "prusa3d.com"
@@ -863,7 +935,7 @@
 "Entfernen Sie das alte Filament und druecken Sie den Knopf, um das neue zu laden."
 
 #
-"Prusa i3 MK3S OK."
+"Prusa i3 MK3S"
 "\x00"
 
 #MSG_CALIBRATE_BED_RESET
@@ -884,15 +956,15 @@
 
 #MSG_BED_CORRECTION_RIGHT c=14 r=1
 "Right side[um]"
-"Rechts [um]"
+"Rechts    [um]"
 
 #MSG_SECOND_SERIAL_ON c=17 r=1
 "RPi port     [on]"
-"RPi Port     [an]"
+"RPi Port     [An]"
 
 #MSG_SECOND_SERIAL_OFF c=17 r=1
 "RPi port    [off]"
-"RPi Port    [aus]"
+"RPi Port    [Aus]"
 
 #MSG_WIZARD_RERUN c=20 r=7
 "Running Wizard will delete current calibration results and start from the beginning. Continue?"
@@ -900,7 +972,7 @@
 
 #MSG_TOSHIBA_FLASH_AIR_COMPATIBILITY_OFF c=19 r=1
 "SD card  [normal]"
-"SD Karte [normal]"
+"SD Karte [Normal]"
 
 #MSG_TOSHIBA_FLASH_AIR_COMPATIBILITY_ON c=19 r=1
 "SD card [flshAir]"
@@ -928,7 +1000,7 @@
 
 #MSG_SELFTEST
 "Selftest         "
-"Selbsttest "
+"Selbsttest       "
 
 #MSG_SELFTEST_ERROR
 "Selftest error !"
@@ -936,7 +1008,7 @@
 
 #MSG_SELFTEST_FAILED c=20
 "Selftest failed  "
-"Selbsttest misslung  "
+"Selbsttest misslang "
 
 #MSG_FORCE_SELFTEST c=20 r=8
 "Selftest will be run to calibrate accurate sensorless rehoming."
@@ -980,7 +1052,7 @@
 
 #
 "Severe skew"
-"Schwerer Schraeglauf"
+"Sehr schraeg"
 
 #MSG_SORT_ALPHA c=17 r=1
 "Sort   [alphabet]"
@@ -992,15 +1064,15 @@
 
 #MSG_SOUND_LOUD c=17 r=1
 "Sound      [loud]"
-"Sound      [laut]"
+"Sound      [Laut]"
 
 #
 "Slight skew"
-"Leichter Schraeglauf"
+"Etwas schraeg"
 
 #MSG_SOUND_MUTE c=17 r=1
 "Sound      [mute]"
-"Sound     [stumm]"
+"Sound     [Stumm]"
 
 #
 "Some problem encountered, Z-leveling enforced ..."
@@ -1008,7 +1080,7 @@
 
 #MSG_SOUND_ONCE c=17 r=1
 "Sound      [once]"
-"Sound    [einmal]"
+"Sound    [Einmal]"
 
 #MSG_SOUND_SILENT c=17 r=1
 "Sound    [silent]"
@@ -1036,7 +1108,7 @@
 
 #MSG_STOPPED
 "STOPPED. "
-"GESTOPPT. "
+"GESTOPPT."
 
 #MSG_SUPPORT
 "Support"
@@ -1048,15 +1120,15 @@
 
 #MSG_TEMP_CALIBRATION c=20 r=1
 "Temp. cal.          "
-"Temp Kalib. "
+"Temp Kalib.         "
 
 #MSG_TEMP_CALIBRATION_ON c=20 r=1
 "Temp. cal.   [on]"
-"Temp. Kal.   [AN]"
+"Temp. Kal.   [An]"
 
 #MSG_TEMP_CALIBRATION_OFF c=20 r=1
 "Temp. cal.  [off]"
-"Temp. Kal.  [AUS]"
+"Temp. Kal.  [Aus]"
 
 #MSG_CALIBRATION_PINDA_MENU c=17 r=1
 "Temp. calibration"
@@ -1100,7 +1172,7 @@
 
 #
 "Total failures"
-"Gesamte Fehler"
+"Fehler Total"
 
 #
 "to load filament"
@@ -1230,7 +1302,6 @@
 "XYZ calibration failed. Right front calibration point not reachable."
 "XYZ-Kalibrierung fehlgeschlagen. Rechter vorderer Kalibrierpunkt ist nicht erreichbar."
 
-
 #
 "Y distance from min"
 "Y Entfernung vom Min"
@@ -1241,4 +1312,200 @@
 
 #MSG_OFF
 " [off]"
+" [Aus]"
+
+#
+"Back"
+"Zurueck"
+
+#
+"Checks"
 "\x00"
+
+#
+"False triggering"
+"Falschtriggerung"
+
+#
+"FINDA:"
+"\x00"
+
+#
+"Firmware   [none]"
+"Firmware   [Ohne]"
+
+#
+"Firmware [strict]"
+"Firmware [Streng]"
+
+#
+"Firmware   [warn]"
+"\x00"
+
+#
+"HW Setup"
+"HW Einstellungen"
+
+#
+"IR:"
+"\x00"
+
+#
+"Magnets comp.[N/A]"
+"Magnet Komp.  [nv]"
+
+#
+"Magnets comp.[Off]"
+"Magnet Komp. [Aus]"
+
+#
+"Magnets comp. [On]"
+"Magnet Komp.  [An]"
+
+#
+"Mesh         [3x3]"
+"\x00"
+
+#
+"Mesh         [7x7]"
+"\x00"
+
+#
+"Mesh bed leveling"
+"Mesh Bett Ausgleich"
+
+#
+"MK3S firmware detected on MK3 printer"
+"MK3S-Firmware auf MK3-Drucker erkannt"
+
+#
+"MMU Mode [Normal]"
+"MMU Modus[Normal]"
+
+#
+"MMU Mode[Stealth]"
+"MMU Mod.[Stealth]"
+
+#
+"Mode change in progress ..."
+"Moduswechsel erfolgt..."
+
+#
+"Model      [none]"
+"Modell     [ohne]"
+
+#
+"Model    [strict]"
+"Modell   [streng]"
+
+#
+"Model      [warn]"
+"Modell     [warn]"
+
+#
+"Nozzle d.  [0.25]"
+"Duese D.   [0.25]"
+
+#
+"Nozzle d.  [0.40]"
+"Duese D.   [0.40]"
+
+#
+"Z-probe nr.    [5]"
+"Z-Probe Nr.    [5]"
+
+#
+"Nozzle d.  [0.60]"
+"Duese D.   [0.60]"
+
+#
+"Nozzle     [none]"
+"Duese      [Ohne]"
+
+#
+"Nozzle   [strict]"
+"Duese    [Streng]"
+
+#
+"Nozzle     [warn]"
+"Duese      [Warn]"
+
+#
+"G-code sliced for a different level. Continue?"
+"G-Code ist fuer einen anderen Level geslict. Fortfahren?"
+
+#
+"G-code sliced for a different level. Please re-slice the model again. Print cancelled."
+"G-Code ist fuer einen anderen Level geslict. Bitte slicen Sie das Modell erneut. Druck abgebrochen."
+
+#
+"G-code sliced for a different printer type. Continue?"
+"G-Code ist fuer einen anderen Drucker geslict. Fortfahren?"
+
+#
+"G-code sliced for a different printer type. Please re-slice the model again. Print cancelled."
+"G-Code ist fuer einen anderen Drucker geslict. Bitte slicen Sie das Modell erneut. Druck abgebrochen."
+
+#
+"G-code sliced for a newer firmware. Continue?"
+"G-Code ist fuer eine neuere Firmware geslict. Fortfahren?"
+
+#
+"G-code sliced for a newer firmware. Please update the firmware. Print cancelled."
+"G-Code ist fuer eine neuere Firmware geslict. Bitte die Firmware updaten. Druck abgebrochen."
+
+#
+"PINDA:"
+"\x00"
+
+#
+"Preheating to cut"
+"Heizen zum Schnitt"
+
+#
+"Preheating to eject"
+"Heizen zum Auswurf"
+
+#
+"Printer nozzle diameter differs from the G-code. Continue?"
+"Der Durchmesser der Druckerduese weicht vom G-Code ab. Fortfahren?"
+
+#
+"Printer nozzle diameter differs from the G-code. Please check the value in settings. Print cancelled."
+"Der Durchmesser der Druckerduese weicht vom G-Code ab. Bitte ueberpruefen Sie den Wert in den Einstellungen. Druck abgebrochen."
+
+#
+"Rename"
+"Umbenennen"
+
+#
+"Select"
+"Auswahl"
+
+#
+"Sensor info"
+"Sensor Info"
+
+#
+"Sheet"
+"Blech"
+
+#
+"Sound    [assist]"
+"Sound    [Assist]"
+
+#
+"Steel sheets"
+"Stahlbleche"
+
+#
+"Z-correct:"
+"Z-Korrektur:"
+
+#
+"Z-probe nr.    [1]"
+"Z-Probe Nr.    [1]"
+
+#
+"Z-probe nr.    [3]"
+"Z-Probe Nr.    [3]"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # lang-add.sh - multi-language support script
 #  add new texts from list (lang_add.txt) to all dictionary files
@@ -64,6 +64,7 @@ cat lang_add.txt | sed 's/^/"/;s/$/"/' | while read new_s; do
 		insert_xx "$new_s" 'de'
 		insert_xx "$new_s" 'es'
 		insert_xx "$new_s" 'fr'
+		insert_xx "$new_s" 'nl'
 		insert_xx "$new_s" 'it'
 		insert_xx "$new_s" 'pl'
 	fi

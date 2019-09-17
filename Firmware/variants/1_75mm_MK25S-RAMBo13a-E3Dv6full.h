@@ -2,12 +2,16 @@
 #define CONFIGURATION_PRUSA_H
 
 #include <limits.h>
+#include "printers.h"
 /*------------------------------------
  GENERAL SETTINGS
  *------------------------------------*/
 
 // Printer revision
 #define PRINTER_TYPE PRINTER_MK25S
+#define PRINTER_NAME PRINTER_MK25S_NAME
+#define PRINTER_MMU_TYPE PRINTER_MK25S_MMU2
+#define PRINTER_MMU_NAME PRINTER_MK25S_MMU2_NAME
 #define FILAMENT_SIZE "1_75mm_MK25"
 #define NOZZLE_TYPE "E3Dv6full"
 
@@ -29,6 +33,10 @@
 //#define E3D_PT100_EXTRUDER_NO_AMP
 //#define E3D_PT100_BED_WITH_AMP
 //#define E3D_PT100_BED_NO_AMP
+
+
+// Uncomment the below for the Slice Engineering high temperature sensor
+//#define SLICE_HT_EXTRUDER
 
 
 /*------------------------------------
@@ -113,6 +121,7 @@
 // Safety timer
 #define SAFETYTIMER
 #define DEFAULT_SAFETYTIMER_TIME_MINS 30
+#define FARM_DEFAULT_SAFETYTIMER_TIME_ms (45*60*1000ul)
 
 // Filament sensor
 #define FILAMENT_SENSOR
@@ -175,6 +184,8 @@
 // Maxtemps
 #if defined(E3D_PT100_EXTRUDER_WITH_AMP) || defined(E3D_PT100_EXTRUDER_NO_AMP)
 #define HEATER_0_MAXTEMP 410
+#elif defined (SLICE_HT_EXTRUDER)
+#define HEATER_0_MAXTEMP 410
 #else
 #define HEATER_0_MAXTEMP 305
 #endif
@@ -187,6 +198,10 @@
 #define  DEFAULT_Kp 21.70
 #define  DEFAULT_Ki 1.60
 #define  DEFAULT_Kd 73.76
+#elif defined (SLICE_HT_EXTRUDER)
+#define  DEFAULT_Kp 29.09
+#define  DEFAULT_Ki 3.52
+#define  DEFAULT_Kd 60.04
 #else
 // Define PID constants for extruder
 //#define  DEFAULT_Kp 40.925
@@ -372,12 +387,16 @@
  *------------------------------------*/
 
 #define FARM_PREHEAT_HOTEND_TEMP 250
-#define FARM_PREHEAT_HPB_TEMP 40
+#define FARM_PREHEAT_HPB_TEMP 80
 #define FARM_PREHEAT_FAN_SPEED 0
 
 #define PLA_PREHEAT_HOTEND_TEMP 215
 #define PLA_PREHEAT_HPB_TEMP 60
 #define PLA_PREHEAT_FAN_SPEED 0
+
+#define ASA_PREHEAT_HOTEND_TEMP 260
+#define ASA_PREHEAT_HPB_TEMP 105
+#define ASA_PREHEAT_FAN_SPEED 0
 
 #define ABS_PREHEAT_HOTEND_TEMP 255
 #define ABS_PREHEAT_HPB_TEMP 100
@@ -439,11 +458,14 @@
 // 148 is E3D Pt100 with 4k7 pullup and no PT100 Amplifier on a MiniRambo 1.3a
 // 247 is Pt100 with 4k7 pullup and PT100 Amplifier
 // 110 is Pt100 with 1k pullup (non standard)
+// 800 Slice Engineering 450c thermistors
 
 #if defined(E3D_PT100_EXTRUDER_WITH_AMP)
 #define TEMP_SENSOR_0 247
 #elif defined(E3D_PT100_EXTRUDER_NO_AMP)
 #define TEMP_SENSOR_0 148
+#elif defined(SLICE_HT_EXTRUDER)
+#define TEMP_SENSOR_0 800
 #else
 #define TEMP_SENSOR_0 5
 #endif
