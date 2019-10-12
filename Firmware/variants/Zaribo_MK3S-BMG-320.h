@@ -19,7 +19,10 @@
 #define DEVELOPER
 
 // Printer name
-#define CUSTOM_MENDEL_NAME "Zaribo MK3S-BMG-420"
+#define CUSTOM_MENDEL_NAME "Zaribo MK3S-BMG-320"
+
+// WEH002004 OLED Display uncomment WEH002004_OLED if have this kind of display
+//#define WEH002004_OLED
 
 // Electronics
 #define MOTHERBOARD BOARD_EINSY_1_0a
@@ -73,7 +76,7 @@
 #define X_MIN_POS 0
 #define Y_MAX_POS 212.5
 #define Y_MIN_POS -4 //orig -4
-#define Z_MAX_POS 420
+#define Z_MAX_POS 320
 #define Z_MIN_POS 0.15
 
 // Canceled home position
