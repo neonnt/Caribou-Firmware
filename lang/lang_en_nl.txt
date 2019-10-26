@@ -1,3 +1,7 @@
+#
+"[%.7s]Live adj. Z\x0avalue set, continue\x0aor start from zero?\x0a%cContinue%cReset"
+"[%.7s]Z instell.\x0awaarde ingesteld,\x0averder of bij 0\x0abeginen?\x0a%cVerder%cReset"
+
 #MSG_IMPROVE_BED_OFFSET_AND_SKEW_LINE2 c=14
 " of 4"
 " van 4"
@@ -174,6 +178,10 @@
 "Crash det.   [on]"
 "Crashdet.   [aan]"
 
+#
+"Choose a filament for the First Layer Calibration and select it in the on-screen menu."
+"Kies een filament voor de kalibratie van de eerste laag en selecteer deze in het schermmenu."
+
 #MSG_CRASHDETECT_NA
 "Crash det.  [N/A]"
 "Crashdet.   [N/V]"
@@ -221,10 +229,6 @@
 #MSG_EJECT_FILAMENT c=17 r=1
 "Eject filament"
 "Fil. uitwerpen"
-
-#
-"Eject"
-"Uitwerpen"
 
 #MSG_EJECTING_FILAMENT c=20 r=1
 "Ejecting filament"
@@ -466,17 +470,9 @@
 "I will run z calibration now."
 "Begin nu met z-kalibratie."
 
-#MSG_WIZARD_V2_CAL_2 c=20 r=12
-"I will start to print line and you will gradually lower the nozzle by rotating the knob, until you reach optimal height. Check the pictures in our handbook in chapter Calibration."
-"Begin de Kal.-lijn te printen, draai de knop tot je de optimale hoogte bereikt. Controleer de afbeeldingen in ons handboek in hoofdstuk Calibration."
-
 #MSG_WATCH
 "Info screen"
 "Info scherm"
-
-#
-"Is filament 1 loaded?"
-"Is filament 1 geladen?"
 
 #MSG_INSERT_FILAMENT c=20
 "Insert filament"
@@ -486,14 +482,6 @@
 "Is filament loaded?"
 "Is filament geladen?"
 
-#MSG_WIZARD_PLA_FILAMENT c=20 r=2
-"Is it PLA filament?"
-"Is het PLA filament?"
-
-#MSG_PLA_FILAMENT_LOADED c=20 r=2
-"Is PLA filament loaded?"
-"Is PLA filament geladen?"
-
 #MSG_STEEL_SHEET_CHECK c=20 r=2
 "Is steel sheet on heatbed?"
 "Ligt de staalplaat op het bed?"
@@ -501,6 +489,10 @@
 #
 "Last print failures"
 "Laatste printfouten"
+
+#
+"If you have additional steel sheets, calibrate their presets in Settings - HW Setup - Steel sheets."
+"Als u extra staalplaten hebt, kalibreert u hun voorinstellingen in Instellingen - HW Setup - Staalplaten."
 
 #
 "Last print"
@@ -734,14 +726,6 @@
 "Please check our handbook and fix the problem. Then resume the Wizard by rebooting the printer."
 "Controleer aub ons handboek en los het probleem op. Hervat vervolgens de wizard door de printer opnieuw te starten."
 
-#MSG_WIZARD_LOAD_FILAMENT c=20 r=8
-"Please insert PLA filament to the extruder, then press knob to load it."
-"Voer PLA filament in de extruder, druk dan op knop om het te laden."
-
-#MSG_PLEASE_LOAD_PLA c=20 r=4
-"Please load PLA filament first."
-"Voer eerst PLA filament aub."
-
 #MSG_CHECK_IDLER c=20 r=4
 "Please open idler and remove filament manually."
 "Open rondsel en verwijder filament handmatig."
@@ -753,10 +737,6 @@
 #MSG_PRESS_TO_UNLOAD c=20 r=4
 "Please press the knob to unload filament"
 "Druk op de knop om filament te verwijderen"
-
-#
-"Please insert PLA filament to the first tube of MMU, then press the knob to load it."
-"Voer PLA-filament in de eerste buis van de MMU en druk op de knop om deze te laden."
 
 #MSG_PULL_OUT_FILAMENT c=20 r=4
 "Please pull out filament immediately"
@@ -849,6 +829,18 @@
 #
 "Print FAN"
 "Print fan"
+
+#
+"Please insert filament into the extruder, then press the knob to load it."
+"Steek a.u.b. filament in de extruder en druk op de knop om het te laden."
+
+#
+"Please insert filament into the first tube of the MMU, then press the knob to load it."
+"Steek a.u.b. filament in de eerste buis van de MMU en druk op de knop om het te laden."
+
+#
+"Please load filament first."
+"Laad a.u.b. eerst filament."
 
 #WELCOME_MSG c=20
 "Prusa i3 MK2.5"
@@ -1018,10 +1010,6 @@
 "Select nozzle preheat temperature which matches your material."
 "Selecteer de voorverwarmingstemperatuur van de tuit die overeenkomt met uw materiaal."
 
-#
-"Select PLA filament:"
-"Selecteer PLA-filament:"
-
 #MSG_SET_TEMPERATURE c=19 r=1
 "Set temperature:"
 "Temp. instellen:"
@@ -1051,8 +1039,8 @@
 "Sortering  [tijd]"
 
 #
-"Severe skew"
-"Erg scheef"
+"Severe skew:"
+"Erg scheef:"
 
 #MSG_SORT_ALPHA c=17 r=1
 "Sort   [alphabet]"
@@ -1067,8 +1055,8 @@
 "Geluid     [hard]"
 
 #
-"Slight skew"
-"Iets scheef"
+"Slight skew:"
+"Iets scheef:"
 
 #MSG_SOUND_MUTE c=17 r=1
 "Sound      [mute]"
@@ -1118,6 +1106,10 @@
 "Swapped"
 "Gewisseld"
 
+#
+"Select filament:"
+"Kies filament:"
+
 #MSG_TEMP_CALIBRATION c=20 r=1
 "Temp. cal.          "
 "Tempkalibratie      "
@@ -1125,6 +1117,10 @@
 #MSG_TEMP_CALIBRATION_ON c=20 r=1
 "Temp. cal.   [on]"
 "Tempkal.    [aan]"
+
+#
+"Select temperature which matches your material."
+"Selecteer de temperatuur die overeenkomt met uw materiaal."
 
 #MSG_TEMP_CALIBRATION_OFF c=20 r=1
 "Temp. cal.  [off]"
@@ -1307,6 +1303,10 @@
 "Y afstand van min"
 
 #
+"The printer will start printing a zig-zag line. Rotate the knob until you reach the optimal height. Check the pictures in the handbook (Calibration chapter)."
+"\x00"
+
+#
 "Y-correct:"
 "Y-correctie:"
 
@@ -1411,10 +1411,6 @@
 "Tuit d.    [0.40]"
 
 #
-"Z-probe nr.    [5]"
-"Z-probe nr.    [5]"
-
-#
 "Nozzle d.  [0.60]"
 "Tuit d.    [0.60]"
 
@@ -1509,3 +1505,8 @@
 #
 "Z-probe nr.    [3]"
 "Z-probe nr.    [3]"
+
+#
+"Z-probe nr.    [5]"
+"Z-probe nr.    [5]"
+
