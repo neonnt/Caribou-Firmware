@@ -79,6 +79,7 @@ for TYPE in ${TypesArray[@]}; do
 		else
 			PRUSA_TYPE=$TYPE
 		fi
+		# Zaribo Branding
 		sed -i -e 's/^#define CUSTOM_MENDEL_NAME "Prusa i3 '$PRUSA_TYPE'"*/#define CUSTOM_MENDEL_NAME "Zaribo '$TYPE'-'$HEIGHT'"/g' ${VARIANT}
 		# Inverted Y-Motor
 		sed -i -e "s/^#define INVERT_Y_DIR 0*/#define INVERT_Y_DIR 1/g" ${VARIANT}
