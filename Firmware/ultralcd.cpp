@@ -964,7 +964,6 @@ static void lcd_status_screen()
 
 	if (lcd_draw_update)
 	{
-	#ifndef WEH002004_OLED //Refreshing the Status Screen is too noticible on OLED display
 		ReInitLCD++;
 		if (ReInitLCD == 30)
 		{
@@ -976,7 +975,7 @@ static void lcd_status_screen()
 			if ((ReInitLCD % 10) == 0)
 				lcd_refresh_noclear(); //to maybe revive the LCD if static electricity killed it.
 		}
-	#endif
+
 		lcdui_print_status_screen();
 
 		if (farm_mode)
@@ -2190,7 +2189,7 @@ static void lcd_support_menu()
       MENU_ITEM_BACK_P(PSTR("FW - " FW_version));
   }*/
       
-  MENU_ITEM_BACK_P(_i("Zaribo.com"));////MSG_PRUSA3D
+  MENU_ITEM_BACK_P(_i("prusa3d.com"));////MSG_PRUSA3D
   MENU_ITEM_BACK_P(_i("forum.prusa3d.com"));////MSG_PRUSA3D_FORUM
   MENU_ITEM_BACK_P(_i("howto.prusa3d.com"));////MSG_PRUSA3D_HOWTO
   MENU_ITEM_BACK_P(STR_SEPARATOR);
@@ -3533,7 +3532,7 @@ bool lcd_calibrate_z_end_stop_manual(bool only_z)
 calibrated:
     // Let the machine think the Z axis is a bit higher than it is, so it will not home into the bed
     // during the search for the induction points.
-	if ((PRINTER_TYPE == PRINTER_MK25S) || (PRINTER_TYPE == PRINTER_MK25) || (PRINTER_TYPE == PRINTER_MK2) || (PRINTER_TYPE == PRINTER_MK2_SNMM)) {
+	if ((PRINTER_TYPE == PRINTER_MK25) || (PRINTER_TYPE == PRINTER_MK2) || (PRINTER_TYPE == PRINTER_MK2_SNMM)) {
 		current_position[Z_AXIS] = Z_MAX_POS-3.f;
 	}
 	else {
@@ -7591,7 +7590,6 @@ static bool lcd_selfcheck_axis_sg(unsigned char axis) {
 	switch (axis) {
 	case 0: axis_length = X_MAX_POS; break;
 	case 1: axis_length = Y_MAX_POS + 8; break;
-	case 2: axis_length = Z_MAX_POS; break;
 	default: axis_length = 210; break;
 	}
 

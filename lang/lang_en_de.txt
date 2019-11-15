@@ -28,7 +28,7 @@
 
 #MSG_BABYSTEPPING_Z c=15
 "Adjusting Z:"
-"Z einstellen:"
+"Z Anpassen:"
 
 #MSG_SELFTEST_CHECK_ALLCORRECT c=20
 "All correct      "
@@ -52,7 +52,7 @@
 
 #MSG_AUTO_DEPLETE_ON c=17 r=1
 "SpoolJoin    [on]"
-"SpoolJoin    [An]"
+"SpoolJoin    [an]"
 
 #
 "SpoolJoin   [N/A]"
@@ -60,7 +60,7 @@
 
 #MSG_AUTO_DEPLETE_OFF c=17 r=1
 "SpoolJoin   [off]"
-"SpoolJoin   [Aus]"
+"SpoolJoin   [aus]"
 
 #MSG_AUTO_HOME
 "Auto home"
@@ -112,7 +112,7 @@
 
 #MSG_MENU_BELT_STATUS c=15 r=1
 "Belt status"
-"Riemstatus"
+"Gurtstatus"
 
 #MSG_RECOVER_PRINT c=20 r=2
 "Blackout occurred. Recover print?"
@@ -120,7 +120,7 @@
 
 #
 "Calibrating home"
-"Kalib. Startpos"
+"Kalibriere Start"
 
 #MSG_CALIBRATE_BED
 "Calibrate XYZ"
@@ -176,7 +176,7 @@
 
 #MSG_CRASHDETECT_ON
 "Crash det.   [on]"
-"Crash Erk.   [An]"
+"Crash Erk.   [an]"
 
 #
 "Choose a filament for the First Layer Calibration and select it in the on-screen menu."
@@ -188,7 +188,7 @@
 
 #MSG_CRASHDETECT_OFF
 "Crash det.  [off]"
-"Crash Erk.  [Aus]"
+"Crash Erk.  [aus]"
 
 #MSG_CRASH_DETECTED c=20 r=1
 "Crash detected."
@@ -204,7 +204,7 @@
 
 #MSG_CURRENT c=19 r=1
 "Current"
-"Aktuell"
+"Aktuelles"
 
 #MSG_DATE c=17 r=1
 "Date:"
@@ -228,7 +228,7 @@
 
 #MSG_EJECT_FILAMENT c=17 r=1
 "Eject filament"
-"Fil. auswerfen"
+"Filamentauswurf"
 
 #MSG_EJECTING_FILAMENT c=20 r=1
 "Ejecting filament"
@@ -276,7 +276,7 @@
 
 #MSG_FSENS_AUTOLOAD_ON c=17 r=1
 "F. autoload  [on]"
-"F.Autoladen  [An]"
+"F.Autoladen  [an]"
 
 #MSG_FSENS_AUTOLOAD_NA c=17 r=1
 "F. autoload [N/A]"
@@ -284,11 +284,11 @@
 
 #MSG_FSENS_AUTOLOAD_OFF c=17 r=1
 "F. autoload [off]"
-"F. Autoload [Aus]"
+"F. Autoload [aus]"
 
 #
 "Fail stats"
-"Fehlerstats"
+"Fehlerstatistik"
 
 #MSG_FAN_SPEED c=14
 "Fan speed"
@@ -300,15 +300,15 @@
 
 #MSG_FANS_CHECK_ON c=17 r=1
 "Fans check   [on]"
-"Luefter Ktr. [An]"
+"Luefter Chk. [an]"
 
 #MSG_FANS_CHECK_OFF c=17 r=1
 "Fans check  [off]"
-"Luefter Ktr.[Aus]"
+"Luefter Chk.[aus]"
 
 #MSG_FSENSOR_ON
 "Fil. sensor  [on]"
-"Fil. Sensor  [An]"
+"Fil. Sensor  [an]"
 
 #MSG_FSENSOR_NA
 "Fil. sensor [N/A]"
@@ -316,7 +316,7 @@
 
 #MSG_FSENSOR_OFF
 "Fil. sensor [off]"
-"Fil. Sensor [Aus]"
+"Fil. Sensor [aus]"
 
 #
 "Filam. runouts"
@@ -401,10 +401,6 @@
 #MSG_WIZARD_WELCOME c=20 r=7
 "Hi, I am your Original Prusa i3 printer. Would you like me to guide you through the setup process?"
 "Hallo, ich bin Ihr Original Prusa i3 Drucker. Moechten Sie, dass ich Sie durch den Einrich- tungsablauf fuehre?"
-
-#MSG_WIZARD_WELCOME c=20 r=7
-"Hi, I am your Zaribo printer. Would you like me to guide you through the setup process?"
-"Hallo, ich bin Ihr Zaribo Drucker. Moechten Sie, dass ich Sie durch den Einrich- tungsablauf fuehre?"
 
 #MSG_PRUSA3D_HOWTO
 "howto.prusa3d.com"
@@ -588,7 +584,7 @@
 
 #MSG_SILENT_MODE_ON
 "Mode     [silent]"
-"Modus     [Leise]"
+"Modus     [leise]"
 
 #
 "MMU needs user attention."
@@ -830,73 +826,6 @@
 "Print FAN"
 "Druckvent."
 
-#WELCOME_MSG c=20
-"Prusa i3 MK2.5"
-"\x00"
-
-#WELCOME_MSG c=20
-"Prusa i3 MK3"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK2.5-320"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK2.5-220"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-320"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-220"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK2.5-420"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-420"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-220"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-320"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-420"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-BMG-220"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-BMG-320"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-BMG-420"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-BMG-220"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-BMG-320"
-"\x00"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-BMG-420"
-"\x00"
 #
 "Please insert filament into the extruder, then press the knob to load it."
 "Bitte legen Sie das Filament in den Extruder ein und druecken Sie dann den Knopf, um es zu laden."
@@ -926,7 +855,7 @@
 "Entfernen Sie das alte Filament und druecken Sie den Knopf, um das neue zu laden."
 
 #
-"Prusa i3 MK3S"
+"Prusa i3 MK3S OK."
 "\x00"
 
 #MSG_CALIBRATE_BED_RESET
@@ -951,11 +880,11 @@
 
 #MSG_SECOND_SERIAL_ON c=17 r=1
 "RPi port     [on]"
-"RPi Port     [An]"
+"RPi Port     [an]"
 
 #MSG_SECOND_SERIAL_OFF c=17 r=1
 "RPi port    [off]"
-"RPi Port    [Aus]"
+"RPi Port    [aus]"
 
 #MSG_WIZARD_RERUN c=20 r=7
 "Running Wizard will delete current calibration results and start from the beginning. Continue?"
@@ -963,7 +892,7 @@
 
 #MSG_TOSHIBA_FLASH_AIR_COMPATIBILITY_OFF c=19 r=1
 "SD card  [normal]"
-"SD Karte [Normal]"
+"SD Karte [normal]"
 
 #MSG_TOSHIBA_FLASH_AIR_COMPATIBILITY_ON c=19 r=1
 "SD card [flshAir]"
@@ -999,7 +928,7 @@
 
 #MSG_SELFTEST_FAILED c=20
 "Selftest failed  "
-"Selbsttest misslang "
+"Selbsttest Error "
 
 #MSG_FORCE_SELFTEST c=20 r=8
 "Selftest will be run to calibrate accurate sensorless rehoming."
@@ -1031,7 +960,7 @@
 
 #MSG_SORT_NONE c=17 r=1
 "Sort       [none]"
-"Sort.     [Keine]"
+"Sort.      [ohne]"
 
 #MSG_SORT_TIME c=17 r=1
 "Sort       [time]"
@@ -1039,7 +968,7 @@
 
 #
 "Severe skew:"
-"Sehr schraeg:"
+"Schwer.Schr:"
 
 #MSG_SORT_ALPHA c=17 r=1
 "Sort   [alphabet]"
@@ -1051,15 +980,15 @@
 
 #MSG_SOUND_LOUD c=17 r=1
 "Sound      [loud]"
-"Sound      [Laut]"
+"Sound      [laut]"
 
 #
 "Slight skew:"
-"Etwas schraeg:"
+"Leicht.Schr:"
 
 #MSG_SOUND_MUTE c=17 r=1
 "Sound      [mute]"
-"Sound     [Stumm]"
+"Sound     [stumm]"
 
 #
 "Some problem encountered, Z-leveling enforced ..."
@@ -1067,7 +996,7 @@
 
 #MSG_SOUND_ONCE c=17 r=1
 "Sound      [once]"
-"Sound    [Einmal]"
+"Sound    [einmal]"
 
 #MSG_SOUND_SILENT c=17 r=1
 "Sound    [silent]"
@@ -1115,7 +1044,7 @@
 
 #MSG_TEMP_CALIBRATION_ON c=20 r=1
 "Temp. cal.   [on]"
-"Temp. Kal.   [An]"
+"Temp. Kal.   [an]"
 
 #
 "Select temperature which matches your material."
@@ -1123,7 +1052,7 @@
 
 #MSG_TEMP_CALIBRATION_OFF c=20 r=1
 "Temp. cal.  [off]"
-"Temp. Kal.  [Aus]"
+"Temp. Kal.  [aus]"
 
 #MSG_CALIBRATION_PINDA_MENU c=17 r=1
 "Temp. calibration"
@@ -1167,7 +1096,7 @@
 
 #
 "Total failures"
-"Fehler Total"
+"Gesamte Fehler"
 
 #
 "to load filament"
@@ -1311,7 +1240,7 @@
 
 #MSG_OFF
 " [off]"
-" [Aus]"
+" [aus]"
 
 #
 "Back"
@@ -1331,7 +1260,7 @@
 
 #
 "Firmware   [none]"
-"Firmware   [Ohne]"
+"Firmware   [ohne]"
 
 #
 "Firmware [strict]"
@@ -1415,7 +1344,7 @@
 
 #
 "Nozzle     [none]"
-"Duese      [Ohne]"
+"Duese      [ohne]"
 
 #
 "Nozzle   [strict]"
@@ -1508,4 +1437,3 @@
 #
 "Z-probe nr.    [5]"
 "Z-Probe Nr.    [5]"
-

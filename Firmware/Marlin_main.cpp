@@ -772,7 +772,7 @@ int uart_putchar(char c, FILE *)
 void lcd_splash()
 {
 	lcd_clear(); // clears display and homes screen
-	lcd_puts_P(PSTR("\n Zaribo Research\n   and Development"));
+	lcd_puts_P(PSTR("\n Original Prusa i3\n   Prusa Research"));
 }
 
 
@@ -2132,7 +2132,7 @@ bool calibrate_z_auto()
 	plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate / 60, active_extruder);
 	st_synchronize();
 	enable_endstops(endstops_enabled);
-	if ((PRINTER_TYPE == PRINTER_MK3S) || (PRINTER_TYPE == PRINTER_MK3) || (PRINTER_TYPE == PRINTER_MK25S)) {
+	if (PRINTER_TYPE == PRINTER_MK3) {
 		current_position[Z_AXIS] = Z_MAX_POS + 2.0;
 	}
 	else {
@@ -3002,7 +3002,7 @@ template<typename T>
 static T gcode_M600_filament_change_z_shift()
 {
 #ifdef FILAMENTCHANGE_ZADD
-	static_assert(Z_MAX_POS < (Z_MAX_POS +45 - FILAMENTCHANGE_ZADD), "Z-range too high, change the T type from uint8_t to uint16_t"); //the value '255' uint8_t just saves 2 bytes of program storage space
+	static_assert(Z_MAX_POS < (255 - FILAMENTCHANGE_ZADD), "Z-range too high, change the T type from uint8_t to uint16_t");
 	// avoid floating point arithmetics when not necessary - results in shorter code
 	T ztmp = T( current_position[Z_AXIS] );
 	T z_shift = 0;
@@ -6332,9 +6332,9 @@ Sigma_Exit:
           // pause the print for 30s and ask the user to upgrade the firmware.
           show_upgrade_dialog_if_version_newer(++ strchr_pointer);
       } else {
-          SERIAL_ECHOPGM("FIRMWARE_NAME:Zaribo-Firmware ");
+          SERIAL_ECHOPGM("FIRMWARE_NAME:Prusa-Firmware ");
           SERIAL_ECHORPGM(FW_VERSION_STR_P());
-          SERIAL_ECHOPGM(" based on Marlin FIRMWARE_URL:https://github.com/Zaribo/Zaribo-Firmware PROTOCOL_VERSION:");
+          SERIAL_ECHOPGM(" based on Marlin FIRMWARE_URL:https://github.com/prusa3d/Prusa-Firmware PROTOCOL_VERSION:");
           SERIAL_ECHOPGM(PROTOCOL_VERSION);
           SERIAL_ECHOPGM(" MACHINE_TYPE:");
           SERIAL_ECHOPGM(CUSTOM_MENDEL_NAME); 

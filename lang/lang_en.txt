@@ -301,9 +301,6 @@
 #MSG_WIZARD_WELCOME c=20 r=7
 "Hi, I am your Original Prusa i3 printer. Would you like me to guide you through the setup process?"
 
-#MSG_WIZARD_WELCOME c=20 r=7
-"Hi, I am your Zaribo printer. Would you like me to guide you through the setup process?"
-
 #MSG_PRUSA3D_HOWTO
 "howto.prusa3d.com"
 
@@ -622,56 +619,6 @@
 #
 "Print FAN"
 
-#WELCOME_MSG c=20
-"Prusa i3 MK2.5"
-
-#WELCOME_MSG c=20
-"Prusa i3 MK3"
-
-#WELCOME_MSG c=20
-"Zaribo MK2.5-320"
-
-#WELCOME_MSG c=20
-"Zaribo MK2.5-220"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-320"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-220"
-
-#WELCOME_MSG c=20
-"Zaribo MK2.5-420"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-420"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-220"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-320"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-420"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-BMG-220"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-BMG-320"
-
-#WELCOME_MSG c=20
-"Zaribo MK3-BMG-420"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-BMG-220"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-BMG-320"
-
-#WELCOME_MSG c=20
-"Zaribo MK3S-BMG-420"
 #
 "Please insert filament into the extruder, then press the knob to load it."
 
@@ -694,7 +641,7 @@
 "Remove old filament and press the knob to start loading new filament."
 
 #
-"Prusa i3 MK3S"
+"Prusa i3 MK3S OK."
 
 #MSG_CALIBRATE_BED_RESET
 "Reset XYZ calibr."
@@ -1130,4 +1077,3 @@
 
 #
 "Z-probe nr.    [5]"
-
