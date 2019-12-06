@@ -169,7 +169,7 @@ else
   if [ $? -eq 0 ]; then echo 'OK' >&2; else echo 'NG!' >&2; finish 1; fi
  fi
  if [ -e lang_tr.bin ]; then
-  echo -n " Turk  : " >&2
+  echo -n " Turkish : " >&2
   ./update_lang.sh tr 2>./update_lang_tr.out 1>/dev/null
   if [ $? -eq 0 ]; then echo 'OK' >&2; else echo 'NG!' >&2; fi
  fi
