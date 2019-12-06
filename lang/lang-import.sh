@@ -174,6 +174,48 @@ fi
 #if [ "$LNG" = "pl" ]; then
 #fi
 
+#replace in turkish translation according to
+if [ "$LNG" = "tr" ]; then
+ #replace 'ë' with 'e'
+ sed -i 's/\xc3\xab/e/g' $LNG'_filtered.po'
+ #replace 'ï' with 'i'
+ sed -i 's/\xc3\xaf/i/g' $LNG'_filtered.po'
+ #replace 'é' with 'e'
+ sed -i 's/\xc3\xa9/e/g' $LNG'_filtered.po'
+ #replace 'è' with 'e' (left)
+ sed -i 's/\xc3\xa8/e/g' $LNG'_filtered.po'
+ #replace 'ö' with 'o' (left)
+ sed -i 's/\xc3\xb6/o/g' $LNG'_filtered.po'
+ #replace 'ê' with 'e' (left)
+ sed -i 's/\xc3\xaa/e/g' $LNG'_filtered.po'
+ #replace 'ü' with 'u' (left)
+ sed -i 's/\xc3\xbc/u/g' $LNG'_filtered.po'
+ #replace 'ç' with 'c' (left)
+ sed -i 's/\xc3\xa7/c/g' $LNG'_filtered.po'
+ #replace 'á' with 'a' (left)
+ sed -i 's/\xc3\xa1/a/g' $LNG'_filtered.po'
+ #replace 'à' with 'a' (left)
+ sed -i 's/\xc3\xa0/a/g' $LNG'_filtered.po'
+ #replace 'ä' with 'a' (left)
+ sed -i 's/\xc3\xa4/a/g' $LNG'_filtered.po'
+ #replace 'û' with 'u' (left)
+ sed -i 's/\xc3\xbc/u/g' $LNG'_filtered.po'
+ #replace 'î' with 'i' (left)
+ sed -i 's/\xc3\xae/i/g' $LNG'_filtered.po'
+ #replace 'í' with 'i' (left)
+ sed -i 's/\xc3\xad/i/g' $LNG'_filtered.po'
+ #replace 'ô' with 'o' (left)
+ sed -i 's/\xc3\xb4/o/g' $LNG'_filtered.po'
+ #replace 'ú' with 'u' (left)
+ sed -i 's/\xc3\xba/u/g' $LNG'_filtered.po'
+ #replace 'ñ' with 'n' (left)
+ sed -i 's/\xc3\xb1/n/g' $LNG'_filtered.po'
+ #replace 'â' with 'a' (left)
+ sed -i 's/\xc3\xa2/a/g' $LNG'_filtered.po'
+ #replace 'Å' with 'A' (left)
+ sed -i 's/\xc3\x85/A/g' $LNG'_filtered.po'
+fi
+
 #check for nonasci characters
 if grep --color='auto' -P -n '[^\x00-\x7F]' $LNG'_filtered.po' >nonasci.txt; then
  exit
