@@ -176,7 +176,7 @@
 
 #MSG_CRASHDETECT_ON
 "Crash det.   [on]"
-"Carpisma test. [on]"
+"Carpisma t.  [on]"
 
 #
 "Choose a filament for the First Layer Calibration and select it in the on-screen menu."
@@ -184,11 +184,11 @@
 
 #MSG_CRASHDETECT_NA
 "Crash det.  [N/A]"
-"Carpisma test. [N/A]"
+"Carpisma t. [N/A]"
 
 #MSG_CRASHDETECT_OFF
 "Crash det.  [off]"
-"Carpisma test. [off]"
+"Carpisma t. [off]"
 
 #MSG_CRASH_DETECTED c=20 r=1
 "Crash detected."
@@ -212,7 +212,7 @@
 
 #MSG_DISABLE_STEPPERS
 "Disable steppers"
-"Motorlar devre disi"
+"Motor.devre disi"
 
 #MSG_BABYSTEP_Z_NOT_SET c=20 r=12
 "Distance between tip of the nozzle and the bed surface has not been set yet. Please follow the manual, chapter First steps, section First layer calibration."
@@ -228,15 +228,15 @@
 
 #MSG_EJECT_FILAMENT c=17 r=1
 "Eject filament"
-"Filamenti cikart"
+"Fil. cikart"
 
 #MSG_EJECTING_FILAMENT c=20 r=1
 "Ejecting filament"
-"Filament cikariliyor"
+"Fil. cikariliyor"
 
 #MSG_SELFTEST_ENDSTOP_NOTHIT c=20 r=1
 "Endstop not hit"
-"Endstop tetiklenmedi"
+"Endstop yok vurma"
 
 #MSG_SELFTEST_ENDSTOP
 "Endstop"
@@ -328,7 +328,7 @@
 
 #MSG_NOT_LOADED c=19
 "Filament not loaded"
-"Filam. yuklu degil"
+"Fil. yuklu degil"
 
 #MSG_FILAMENT_SENSOR c=20
 "Filament sensor"
@@ -424,7 +424,7 @@
 
 #MSG_SELFTEST_CHECK_BED c=20
 "Checking bed     "
-"Tabla kontrol     "
+"Tabla kontrol    "
 
 #MSG_SELFTEST_CHECK_ENDSTOPS c=20
 "Checking endstops"
@@ -440,15 +440,15 @@
 
 #MSG_SELFTEST_CHECK_X c=20
 "Checking X axis  "
-"X eksen kontrol  "
+"X eksen kontrol "
 
 #MSG_SELFTEST_CHECK_Y c=20
 "Checking Y axis  "
-"Y eksen kontrol  "
+"Y eksen kontrol "
 
 #MSG_SELFTEST_CHECK_Z c=20
 "Checking Z axis  "
-"Z eksen kontrol  "
+"Z eksen kontrol "
 
 #MSG_CHOOSE_EXTRUDER c=20 r=1
 "Choose extruder:"
@@ -572,11 +572,11 @@
 
 #
 "MMU load failed     "
-"MMU yukleme basarisiz     "
+"MMU yukle basarisiz "
 
 #
 "MMU load fails"
-"MMU yukleme basarisiz"
+"MMU yukle bas."
 
 #MSG_MMU_OK_RESUMING c=20 r=4
 "MMU OK. Resuming..."
@@ -788,7 +788,7 @@
 
 #
 "Power failures"
-"Guc kesintileri"
+"Guc kesintiler"
 
 #MSG_PRINT_ABORTED c=20
 "Print aborted"
@@ -836,15 +836,15 @@
 
 #WELCOME_MSG c=20
 "Prusa i3 MK3"
-"Prusa i3 MK2.5"
+"\x00"
 
 #WELCOME_MSG c=20
 "Zaribo MK2.5-320"
-"Prusa i3 MK2.5"
+"\x00"
 
 #WELCOME_MSG c=20
 "Zaribo MK2.5-220"
-"Prusa i3 MK2.5"
+"\x00"
 
 #WELCOME_MSG c=20
 "Zaribo MK3-320"
@@ -919,7 +919,7 @@
 
 #MSG_RECOVERING_PRINT c=20 r=1
 "Recovering print    "
-"Baski kurtariliyor    "
+"Baski kurtariliyor  "
 
 #MSG_REMOVE_OLD_FILAMENT c=20 r=4
 "Remove old filament and press the knob to start loading new filament."
@@ -987,11 +987,11 @@
 
 #MSG_SELFTEST_START c=20
 "Self test start  "
-"Donanim Test basladi "
+"Donanim Test basladi"
 
 #MSG_SELFTEST
 "Selftest         "
-"Donanim Test         "
+"Donanim Test     "
 
 #MSG_SELFTEST_ERROR
 "Selftest error !"
@@ -999,7 +999,7 @@
 
 #MSG_SELFTEST_FAILED c=20
 "Selftest failed  "
-"Donanim Test basarisiz "
+"Donanim T. basarisiz"
 
 #MSG_FORCE_SELFTEST c=20 r=8
 "Selftest will be run to calibrate accurate sensorless rehoming."
@@ -1039,7 +1039,7 @@
 
 #
 "Severe skew:"
-"Siddetli carpik:"
+"Siddetli egri:"
 
 #MSG_SORT_ALPHA c=17 r=1
 "Sort   [alphabet]"
@@ -1055,7 +1055,7 @@
 
 #
 "Slight skew:"
-"Hafif carpik:"
+"Hafif egri:"
 
 #MSG_SOUND_MUTE c=17 r=1
 "Sound      [mute]"
@@ -1087,7 +1087,7 @@
 
 #MSG_STATISTICS
 "Statistics  "
-"Istatistikler "
+"Istatistikler"
 
 #MSG_STOP_PRINT
 "Stop print"
@@ -1095,7 +1095,7 @@
 
 #MSG_STOPPED
 "STOPPED. "
-"DURDURULDU. "
+"DURDURULDU."
 
 #MSG_SUPPORT
 "Support"
@@ -1351,15 +1351,15 @@
 
 #
 "Magnets comp.[N/A]"
-"Miknatis telafi [N/A]"
+"Miknat.telafi[N/A]"
 
 #
 "Magnets comp.[Off]"
-"Miknatis telafi [off]"
+"Miknat.telafi[off]"
 
 #
 "Magnets comp. [On]"
-"Miknatis telafi [on]"
+"Miknat. telafi[on]"
 
 #
 "Mesh         [3x3]"
@@ -1379,11 +1379,11 @@
 
 #
 "MMU Mode [Normal]"
-"MMU Mod [Normal]"
+"MMU Mod  [Normal]"
 
 #
 "MMU Mode[Stealth]"
-"MMU Mod[Gizli]"
+"MMU Mod   [Gizli]"
 
 #
 "Mode change in progress ..."

@@ -14,7 +14,9 @@ if [ "$LNG" = "all" ]; then
  ./lang-import.sh es
  ./lang-import.sh fr
  ./lang-import.sh it
+ ./lang-import.sh nl
  ./lang-import.sh pl
+ ./lang-import.sh tr
  exit 0
 fi
 
@@ -39,17 +41,17 @@ cat $LNGISO.po | sed 's/\\e/\\x1b/g;s/\\\\/\\/g' > $LNG'_filtered.po'
 sed -i 's/ \\n/ /g;s/\\n/ /g' $LNG'_filtered.po'
 
 #replace special characters in translation see https://www.utf8-chartable.de/unicode-utf8-table.pl?start=256&number=128&names=-&utf8=string-literal
-https://www.utf8-chartable.de/unicode-utf8-table.pl?start=128&number=128&utf8=string-literal&unicodeinhtml=hex
-http://www.fileformat.info/info/charset/UTF-8/list.htm
+#https://www.utf8-chartable.de/unicode-utf8-table.pl?start=128&number=128&utf8=string-literal&unicodeinhtml=hex
+#http://www.fileformat.info/info/charset/UTF-8/list.htm
 #replace in czech translation
 if [ "$LNG" = "cz" ]; then
- #replace 'ž' with 'z' (z-caron
+ #replace 'ž' with 'z' (z-caron)
  sed -i 's/\xc5\xbe/z/g' $LNG'_filtered.po'
  #replace 'e' with 'e' (e-caron)
  sed -i 's/\xc4\x9b/e/g' $LNG'_filtered.po'
  #replace 'í' with 'i' (i-acute)
  sed -i 's/\xc3\xad/i/g' $LNG'_filtered.po'
- #replace 'r' with 'r' (r-caon)
+ #replace 'r' with 'r' (r-caron)
  sed -i 's/\xc5\x99/r/g' $LNG'_filtered.po'
  #replace 'c' with 'c' (c-caron)
  sed -i 's/\xc4\x8d/c/g' $LNG'_filtered.po'

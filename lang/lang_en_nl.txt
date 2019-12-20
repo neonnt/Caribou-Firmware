@@ -1340,7 +1340,7 @@
 
 #
 "Firmware   [warn]"
-"\x00"
+"Firmware   [warn]"
 
 #
 "HW Setup"

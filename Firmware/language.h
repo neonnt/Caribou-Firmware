@@ -6,7 +6,7 @@
 
 #include "config.h"
 #include <inttypes.h>
-//#include <stdio.h>
+#include <stdio.h>
 
 #define PROTOCOL_VERSION "1.0"
 
@@ -97,7 +97,7 @@ typedef struct
 #define LANG_CODE_IT 0x6974 //!<'it'
 #define LANG_CODE_NL 0x6e6c //!<'nl'
 #define LANG_CODE_PL 0x706c //!<'pl'
-#define LANG_CODE_TR 0x7462 //!<'tr'
+#define LANG_CODE_TR 0x7472 //!<'tr'
 ///@}
 
 #if defined(__cplusplus)

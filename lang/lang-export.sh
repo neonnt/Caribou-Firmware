@@ -20,8 +20,8 @@ if [ "$LNG" = "all" ]; then
  ./lang-export.sh de
  ./lang-export.sh es
  ./lang-export.sh fr
- ./lang-export.sh nl
  ./lang-export.sh it
+ ./lang-export.sh nl
  ./lang-export.sh pl
  ./lang-export.sh tr
  exit 0
