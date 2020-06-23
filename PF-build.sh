@@ -568,13 +568,13 @@ do
 	if [ -z "$DEV_STATUS_SELECTED" ] ; then
 		if [[ "$DEV_CHECK" == *"RC"* ]] ; then
 			DEV_STATUS="RC"
-		elif [[ "$DEV_CHECK" == "ALPHA" ]]; then
+		elif [[ "$DEV_CHECK" == *"ALPHA"* ]]; then
 			DEV_STATUS="ALPHA"
-		elif [[ "$DEV_CHECK" == "BETA" ]]; then
+		elif [[ "$DEV_CHECK" == *"BETA"* ]]; then
 			DEV_STATUS="BETA"
-		elif [[ "$DEV_CHECK" == "DEVEL" ]]; then
+		elif [[ "$DEV_CHECK" == *"DEVEL"* ]]; then
 			DEV_STATUS="DEVEL"
-		elif [[ "$DEV_CHECK" == "DEBUG" ]]; then
+		elif [[ "$DEV_CHECK" == *"DEBUG"* ]]; then
 			DEV_STATUS="DEBUG"
 		else
 			DEV_STATUS="UNKNOWN"
