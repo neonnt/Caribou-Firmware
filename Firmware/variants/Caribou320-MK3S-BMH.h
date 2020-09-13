@@ -587,7 +587,7 @@
 #elif defined(E3D_PT100_EXTRUDER_NO_AMP)
 #define TEMP_SENSOR_0 148
 #elif defined(SLICE_HT_EXTRUDER)
-#define TEMP_SENSOR_0 800
+#define TEMP_SENSOR_0 66
 #else
 #define TEMP_SENSOR_0 5
 #endif
